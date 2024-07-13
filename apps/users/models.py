@@ -7,7 +7,10 @@ from utils.image_path import upload_avatar_for_user
 
 
 class CustomUser(AbstractUser):
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9c6317ef3439a1adddcd3caa9d23c13314531de4
     avatar = models.ImageField(
         upload_to=upload_avatar_for_user,
         verbose_name='Аватар',

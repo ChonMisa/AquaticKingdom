@@ -1,7 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from apps.cart.models import Cart, Order
@@ -11,7 +10,6 @@ from apps.cart.api.serializers import CartSerializer, OrderSerializer
 class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
-    permission_classes = [IsAuthenticated]
 
     @method_decorator(login_required, name='dispatch')
     @action(detail=False, methods=['post'], url_path='purchase')
@@ -64,7 +62,6 @@ class CartViewSet(viewsets.ModelViewSet):
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    permission_classes = [IsAuthenticated]
 
     @action(detail=True, methods=['patch'], url_path='update-status')
     def update_status(self, request):

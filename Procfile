@@ -1,1 +1,1 @@
-web: gunicorn core.wsgi:application
+web: gunicorn AquaticKingdom2.wsgi:application
